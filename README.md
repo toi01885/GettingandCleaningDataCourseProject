@@ -1,2 +1,0 @@
-# GettingandCleaningDataCourseProject
-Week4 final assignment

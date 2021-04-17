@@ -1,0 +1,48 @@
+---
+title: "ReadMe"
+author: "Sean"
+date: "17/04/2021"
+output: html_document
+---
+Getting and Cleaning Data Course Project
+
+The purpose of this project is to demonstrate my ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. This repo explains how all of the scripts work and how they are connected.
+
+
+Background
+One of the most exciting areas in all of data science right now is wearable computing - see for example this article . Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+Here are the data for the project:
+
+ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
+
+Preparation
+The files were downloaded using the "downloader" package since I had trouble with the normal download.file command.  Files were then unzipped into a new directory and read into R.  Looking at the individual files with str() while reading it, read commands were redone to name columns.  Code in the file does not reflect this as files are verified at the end again and the code was cleaned up of these iterations.
+
+Assignment
+The steps of the assignment were followed: 
+
+1.Merge the training and the test sets to create one data set.
+Rbind and cbind commands used to make a complete data set named "dataset"
+
+2. Extract only the measurements on the mean and standard deviation for each measurement.
+Using the select() function in piping format from the dplyr package, a new data set was created - "meanstddata"
+
+3. Use descriptive activity names to name the activities in the data set
+Column for the activities "code" was populated with data from the "activities" file and renamed as "Activities"
+
+4. Appropriately label the data set with descriptive variable names. 
+The column names were listed and abbreviated terms replaced with more descriptive terms using gsub() command.
+
+5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
+Again using dplyr, the data was grouped by activity and subject and then summarised by mean.  The data was written into a new file named "TidyData" as an independant set of data.
+
+One of the weaknesses of this course is comprehensive notes (unless I missed it somewhere). I therefore resort to available cheat sheets and google searches to help me to complete the tasks.  I acknowledge the help found in RPub, r-bloggers, and towardsdatascience websites.
+
+Sean
+
+
+
+
